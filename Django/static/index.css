@@ -1,0 +1,10 @@
+.mybtn{
+    margin-left: 2%;
+    border-radius: 8px;
+    margin-right: 2%
+}
+
+.list_category {
+    flex-direction: column;
+    display: flex
+}

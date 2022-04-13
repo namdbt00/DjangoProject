@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<h2 class="text-center mb-3">Books</h2>
+<table class="table table-borderless">
+    <thead class="border-bottom border-top font-weight-bold">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Author</td>
+            <td>Description</td>
+            <td>Price</td>
+            <td>Amount</td>
+            <td>
+                <a href="{% url 'createBook' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.description}}</td>
+                <td>{{book.price}}</td>
+                <td>{{book.amount}}</td>
+                <td>
+                    <a href="{% url 'updateBook' book.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'deleteBook' book.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
