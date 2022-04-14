@@ -5,8 +5,12 @@ from Django.form.formBook import Book
 from Django.models import Books
 
 
-def index(request):
-    return render(request, 'index.html')
+def home(request):
+    return render(request, 'home.html')
+
+
+def admin(request):
+    return render(request, 'admin.html')
 
 
 # book

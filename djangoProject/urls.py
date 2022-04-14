@@ -16,15 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Django.views import index, book, formBook, deleteBook
+from Django.views import home, book, formBook, deleteBook, admin
 
 urlpatterns = [
 
     # admin
-    path('admin/', admin.site.urls),
+    path('admin/', admin, name='admin'),
 
     # main
-    path('', index, name=''),
+    path('', home, name=''),
 
     # book
     path('book/', book, name='book'),
